@@ -3,6 +3,8 @@ package leetcode.solution.dp.q85;
 import org.junit.Test;
 
 /**
+ * https://leetcode-cn.com/problems/maximal-rectangle/
+ *
  * @author noodle
  * @date 2019/7/28 10:08
  */
@@ -36,10 +38,10 @@ public class Solution {
     @Test
     public void case01() {
         char[][] matrix = {
-                {'1','0','1','0','0'},
-                {'1','0','1','1','1'},
-                {'1','1','1','1','1'},
-                {'1','0','0','1','0'}
+                {'1', '0', '1', '0', '0'},
+                {'1', '0', '1', '1', '1'},
+                {'1', '1', '1', '1', '1'},
+                {'1', '0', '0', '1', '0'}
         };
 
         int maxArea = maximalRectangle(matrix);
