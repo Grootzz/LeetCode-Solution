@@ -1,4 +1,4 @@
-package leetcode.solution.string;
+package leetcode.solution.string.q3;
 
 import org.junit.Test;
 
@@ -11,10 +11,11 @@ import org.junit.Test;
 public class Solution {
     public int myAtoi(String str) {
 
+        str = str.trim();
+
         if (str == null || str.length() == 0)
             return 0;
 
-        str = str.trim();
         boolean isPositive = true;
         int i = 0;
 
@@ -29,6 +30,9 @@ public class Solution {
         while (i < str.length() && (str.charAt(i) <= '9') && (str.charAt(i) >= '0')) {
             res = res * 10 + str.charAt(i) - '0';
             i++;
+            if (res > (long) (Integer.MAX_VALUE)) {
+                break;
+            }
         }
 
         res = isPositive ? res : -res;
@@ -70,5 +74,14 @@ public class Solution {
     public void doTest04() {
         String str = "-91283472332";
         System.out.println(myAtoi(str));
+    }
+
+
+    @Test
+    public void doTest05() {
+        String str = "9223372036854775808";
+        System.out.println(myAtoi(str));
+//        System.out.println(Integer.MAX_VALUE);
+//        System.out.println(Integer.MIN_VALUE);
     }
 }
