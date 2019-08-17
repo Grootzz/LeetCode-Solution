@@ -2,7 +2,9 @@ package leetcode.solution.array.q56;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * 56. 合并区间
@@ -13,34 +15,28 @@ import java.util.Arrays;
  */
 public class Solution {
     public int[][] merge(int[][] intervals) {
-        if (intervals == null || intervals.length == 0)
-            return null;
-
-        if (intervals.length == 1)
+        if (intervals == null || intervals.length < 2)
             return intervals;
 
         Arrays.sort(intervals, (o1, o2) -> o1[0] - o2[0]);
 
-        // 指向有效区间的上限
-        int k = 0;
+        List<int[]> res = new ArrayList<>();
 
         int i = 0;
         int n = intervals.length;
         while (i < n) {
-            if (intervals[k][1] < intervals[i][0]) {
-                intervals[k][0] = intervals[i][0];
-                intervals[k][1] = intervals[i][1];
-                k++;
-            } else if (intervals[k][1] < intervals[i][1]) {
-                intervals[k][1] = intervals[i][1];
-                k++;
+            int left = intervals[i][0];
+            int right = intervals[i][1];
+
+            while (i + 1 < n && right >= intervals[i + 1][0]) {
+                right = Math.max(right, intervals[i + 1][1]);
+                i++;
             }
+            res.add(new int[]{left, right});
             i++;
         }
 
-        int[][] res = Arrays.copyOf(intervals, k);
-
-        return res;
+        return res.toArray(new int[res.size()][2]);
     }
 
     @Test
@@ -56,6 +52,26 @@ public class Solution {
     @Test
     public void doTest02() {
         int[][] ints = {{1, 4}, {4, 5}};
+
+        int[][] merge = merge(ints);
+        for (int[] res : merge) {
+            System.out.println(Arrays.toString(res));
+        }
+    }
+
+    @Test
+    public void doTest03() {
+        int[][] ints = {{1, 4}, {1, 4}};
+
+        int[][] merge = merge(ints);
+        for (int[] res : merge) {
+            System.out.println(Arrays.toString(res));
+        }
+    }
+
+    @Test
+    public void doTest04() {
+        int[][] ints = {{1, 4}, {5, 6}};
 
         int[][] merge = merge(ints);
         for (int[] res : merge) {
