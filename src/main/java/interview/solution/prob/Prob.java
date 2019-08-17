@@ -1,4 +1,4 @@
-package interview.solution.blockingqueue;
+package interview.solution.prob;
 
 import org.junit.Test;
 
