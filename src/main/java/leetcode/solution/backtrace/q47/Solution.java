@@ -1,4 +1,4 @@
-package leetcode.solution.q47;
+package leetcode.solution.backtrace.q47;
 
 import org.junit.Test;
 
