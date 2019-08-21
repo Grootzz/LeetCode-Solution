@@ -1,19 +1,32 @@
 package leetcode.solution.q47;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+/*
+给定一个可包含重复数字的序列，返回所有不重复的全排列。
+
+示例:
+
+输入: [1,1,2]
+输出:
+[
+  [1,1,2],
+  [1,2,1],
+  [2,1,1]
+]
+ */
 
 /**
+ * 47. 全排列 II
+ * https://leetcode-cn.com/problems/permutations-ii/
+ *
  * @author noodle
  * @date 2019/7/9 20:47
  */
 public class Solution {
-
-    public static void main(String[] args) {
-        int[] nums = {1, 1, 2, 2};
-        System.out.println(new Solution().permuteUnique(nums));
-    }
 
     public List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
@@ -47,5 +60,11 @@ public class Solution {
             tmp.remove(tmp.size() - 1);
 
         }
+    }
+
+    @Test
+    public void doTest() {
+        int[] nums = {1, 1, 2, 2};
+        System.out.println(permuteUnique(nums));
     }
 }
