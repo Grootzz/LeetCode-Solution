@@ -46,7 +46,7 @@ public class Solution {
             return;
         }
 
-        if (stack.size() > k || n < 0)
+        if ((stack.size() > k || n < 0) || (stack.size() < k && n == 0))
             return;
 
         for (int i = cur; i < 10; i++) {

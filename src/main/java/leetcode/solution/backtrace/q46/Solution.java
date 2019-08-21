@@ -1,23 +1,36 @@
-package leetcode.solution.q46;
+package leetcode.solution.backtrace.q46;
+
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
+/*
+给定一个没有重复数字的序列，返回其所有可能的全排列。
+
+示例:
+
+输入: [1,2,3]
+输出:
+[
+  [1,2,3],
+  [1,3,2],
+  [2,1,3],
+  [2,3,1],
+  [3,1,2],
+  [3,2,1]
+]
+ */
 
 /**
+ * 46. 全排列
+ * https://leetcode-cn.com/problems/permutations/
+ *
  * @author noodle
  * @date 2019/7/9 20:32
  */
 class Solution {
-
-    public static void main(String[] args) {
-        int[] nums = {1, 2, 3};
-
-        System.out.println(new Solution().permute(nums));
-        System.out.println("------------------------------------------------");
-        System.out.println(new Solution().permute2(nums));
-    }
 
     /**
      * 使用交换的方式回溯
@@ -84,6 +97,17 @@ class Solution {
                 path.pop();
             }
         }
+    }
 
+    @Test
+    public void doTest_M1() {
+        int[] nums = {1, 2, 3};
+        System.out.println(permute(nums));
+    }
+
+    @Test
+    public void doTest_M2() {
+        int[] nums = {1, 2, 3};
+        System.out.println(permute2(nums));
     }
 }
