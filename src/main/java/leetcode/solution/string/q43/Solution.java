@@ -2,8 +2,6 @@ package leetcode.solution.string.q43;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-
 /**
  * 43. 字符串相乘
  * https://leetcode-cn.com/problems/multiply-strings/
@@ -28,8 +26,6 @@ public class Solution {
             }
             ans[n1 - 1 - i] = carry;
         }
-
-        System.out.println(Arrays.toString(ans));
 
         StringBuilder sb = new StringBuilder();
         boolean first = false;
