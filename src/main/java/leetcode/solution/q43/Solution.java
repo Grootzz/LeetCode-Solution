@@ -1,7 +1,5 @@
 package leetcode.solution.q43;
 
-import java.util.Collections;
-
 /**
  * @author noodle
  * @date 2019/7/9 19:24
