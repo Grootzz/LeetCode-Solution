@@ -50,31 +50,28 @@ public class Solution {
 
             int newX = i - 1;
             int newY = j;
-            if (inArea(mark, newX, newY) && mark[newX][newY]) {
+            if (inArea(mark, newX, newY) && !mark[newX][newY]) {
                 if (dfs(board, mark, newX, newY, word, cur + 1))
                     return true;
             }
-
 
             newX = i + 1;
             newY = j;
-            if (inArea(mark, newX, newY) && mark[newX][newY]) {
+            if (inArea(mark, newX, newY) && !mark[newX][newY]) {
                 if (dfs(board, mark, newX, newY, word, cur + 1))
                     return true;
             }
-
 
             newX = i;
             newY = j - 1;
-            if (inArea(mark, newX, newY) && mark[newX][newY]) {
+            if (inArea(mark, newX, newY) && !mark[newX][newY]) {
                 if (dfs(board, mark, newX, newY, word, cur + 1))
                     return true;
             }
 
-
             newX = i;
             newY = j + 1;
-            if (inArea(mark, newX, newY) && mark[newX][newY]) {
+            if (inArea(mark, newX, newY) && !mark[newX][newY]) {
                 if (dfs(board, mark, newX, newY, word, cur + 1))
                     return true;
             }
