@@ -19,5 +19,26 @@ public class ArrayUtils {
         nums[j] = tmp;
     }
 
+    public static ListNode convertArrToList(int[] arr) {
+        ListNode head = new ListNode(-1);
+        ListNode tmp = head;
 
+        for (int i = 0; i < arr.length; i++) {
+            head.next = new ListNode(arr[i]);
+            head = head.next;
+        }
+
+        return tmp.next;
+    }
+
+
+    public static void printLinkedList(ListNode head) {
+
+        while (head != null) {
+            System.out.print(head.val + " ");
+            head = head.next;
+        }
+
+        System.out.println();
+    }
 }
