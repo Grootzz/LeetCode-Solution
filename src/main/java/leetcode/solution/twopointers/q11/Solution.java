@@ -36,10 +36,10 @@ public class Solution {
             maxArea = Math.max(maxArea, (right - left) * Math.min(height[left], height[right]));
             if (height[left] < height[right])
                 left++;
-            else {
+            else
                 right--;
-            }
         }
+
         return maxArea;
     }
 
