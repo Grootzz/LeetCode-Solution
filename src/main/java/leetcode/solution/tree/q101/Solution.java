@@ -26,6 +26,8 @@ public class Solution {
         if (left == null || right == null)
             return false;
 
-        return (left.val == right.val) && mirror(left.left, right.right) && mirror(left.right, right.left);
+        return (left.val == right.val)
+                && mirror(left.left, right.right)
+                && mirror(left.right, right.left);
     }
 }
