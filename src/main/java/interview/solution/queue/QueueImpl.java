@@ -26,7 +26,7 @@ public class QueueImpl<T> {
     public QueueImpl() {
     }
 
-    public T pop() {
+    public T poll() {
 
         if (rear == null) {
             return null;
@@ -38,7 +38,7 @@ public class QueueImpl<T> {
 
     }
 
-    public void push(T e) {
+    public void offer(T e) {
         if (front == null) {
             front = new Node(e);
             rear = front;
