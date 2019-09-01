@@ -65,7 +65,6 @@ public class HeapSort {
             downRoot(nums, hole, nums.length);
     }
 
-
     @Test
     public void testHeapSort() {
         int[] nums = {150, 80, 40, 30, 10, 70, 110, 100, 20, 90, 60, 50, 120, 140, 130};
