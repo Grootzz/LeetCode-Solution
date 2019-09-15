@@ -5,7 +5,7 @@ import util.ListNode;
 /**
  * 86. 分隔链表
  *
- * @author noodle
+ * @author noodles
  * @date 2019/9/1 22:38
  */
 public class Solution {
