@@ -1,10 +1,11 @@
 package common.algo.sort;
 
 import org.junit.Test;
+import util.ListNode;
 
 import java.util.Arrays;
 
-import static util.ArrayUtils.swap;
+import static util.ArrayUtils.*;
 
 /**
  * quick sort
@@ -17,6 +18,7 @@ public class QuickSort {
 
     /**
      * quick sort
+     * 数组排序
      *
      * @param nums
      */
@@ -53,6 +55,46 @@ public class QuickSort {
 
         quickSort(nums, left, i - 1);
         quickSort(nums, i + 1, right);
+    }
+
+
+    /**
+     * 链表快排
+     *
+     * @param head
+     */
+    public ListNode quickSort_LinkedList(ListNode head) {
+        qsort(head, null);
+
+        return head;
+    }
+
+    private void qsort(ListNode head, ListNode tail) {
+        if (head == tail)
+            return;
+
+        int pivot = head.val;
+
+        ListNode left = head, cur = head.next;
+
+        while (cur != tail) {
+            if (cur.val < pivot) {
+                left = left.next;
+                qswap(left, cur);
+            }
+            cur = cur.next;
+        }
+
+        qswap(head, left);
+
+        qsort(head, left);
+        qsort(left.next, tail);
+    }
+
+    private void qswap(ListNode left, ListNode cur) {
+        int tmp = left.val;
+        left.val = cur.val;
+        cur.val = tmp;
     }
 
     /**
@@ -92,5 +134,16 @@ public class QuickSort {
         quickSort(nums);
 
         System.out.println(Arrays.toString(nums));
+    }
+
+
+    @Test
+    public void testLinkedQuickSort() {
+        int[] nums = {2, 1, 4, 5, 0, 3, 9, 8, 7, 6};
+        ListNode head = convertArrToList(nums);
+
+        ListNode listNode = quickSort_LinkedList(head);
+
+        printLinkedList(listNode);
     }
 }
