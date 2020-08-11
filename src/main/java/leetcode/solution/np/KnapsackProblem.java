@@ -58,8 +58,6 @@ public class KnapsackProblem {
         return dp[n][maxWeight];
     }
 
-
-
     @Test
     public void doTest() {
         int[] values = {1, 6, 18, 22, 28};
