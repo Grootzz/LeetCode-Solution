@@ -43,7 +43,6 @@ public class Solution {
         System.out.println(numOfSubarrays(arr, k, threshold));
     }
 
-
     @Test
     public void case_02() {
         int[] arr = {1, 1, 1, 1, 1};
